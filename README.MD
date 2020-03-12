@@ -1,0 +1,55 @@
+# docker-teeworlds-server-alpine
+Teeworlds Server based on an alpine image running as a non-root user
+
+
+Example Command to run:
+
+```
+docker run -p  8303:8303/udp   docker-teeworlds-server-alpine
+```
+
+
+For a more elaborate configuration you could use docker-compose
+```yml
+version: '3.4'
+services:
+  server:
+    image: "mh03r932/docker-teeworlds-server-alpine:latest"
+    ports:
+      - "8303:8303/udp"
+    environment:
+      - SV_NAME=Prutsers United Game Server
+      - SV_MAX_CLIENTS=24
+      - SV_MAX_CLIENTS_PER_IP=5
+      - SV_HIGH_BANDWIDTH=0
+      - SV_REGISTER=1
+      - SV_MAP=dm2
+      - SV_RCON_PASSWORD=MySecretPassword
+      - SV_RCON_MAX_TRIES=3
+      - SV_RCON_BANTIME=6
+      - SV_WARMUP=0
+      - SV_SCORELIMIT=20
+      - SV_TIMELIMIT=0
+      - SV_GAMETYPE=dm
+      - SV_MAPROTATION=dm1,dm2,dm3
+      - SV_ROUNDS_PER_MAP=3
+      - SV_MOTD=Welcome to the Local server!
+      - SV_PLAYER_SLOTS=14
+      - SV_TEAMBALANCE_TIME=1
+      - SV_SPAMPROTECTION=1
+      - SV_TOURNAMENT_MODE=0
+      - SV_PLAYER_READY_MODE=0
+      - SV_STRICT_SPECTATE_MODE=0
+      - SV_SILENT_SPECTATOR_MODE=1
+      - SV_SKILL_LEVEL=1
+      - SV_RESPAWN_DELAY_TDM=3
+      - SV_TEAMDAMAGE=0
+      - SV_POWERUPS=1
+      - SV_RESPAWN_DELAY_TDM=1
+      - SV_VOTE_KICK=1
+      - SV_VOTE_KICK_BANTIME=5
+      - SV_VOTE_KICK_MIN=0
+      - SV_INACTIVEKICK_TIME=3
+      - SV_INACTIVEKICK=1
+      - SV_VOTE_SPECTATE=1
+      - SV_VOTE_SPECTATE_REJOINDELAY=3
